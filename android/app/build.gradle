@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     namespace = "com.cseprep.master"
     compileSdk = rootProject.ext.compileSdkVersion
-    buildToolsVersion "33.0.2"
+    buildToolsVersion "34.0.0"
     defaultConfig {
         applicationId "com.cseprep.master"
         minSdkVersion rootProject.ext.minSdkVersion
