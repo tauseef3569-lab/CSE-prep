@@ -1,0 +1,280 @@
+/* ===== COMPONENT-SPECIFIC STYLES ===== */
+
+/* Chapter Card Extra Styling */
+.chapter-card .progress-bar {
+    margin: var(--spacing-sm) 0;
+}
+
+.chapter-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px dashed var(--bg-tertiary);
+    font-size: 0.9rem;
+}
+
+.chapter-detail-row:last-child {
+    border-bottom: none;
+}
+
+.chapter-detail-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.chapter-detail-value {
+    font-weight: 600;
+}
+
+/* Modal Detail Styles */
+.detail-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.detail-section h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary);
+}
+
+.detail-list {
+    list-style: none;
+}
+
+.detail-list li {
+    padding: var(--spacing-sm);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail-list li.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+/* Settings Styles */
+.settings-group {
+    margin-bottom: var(--spacing-xl);
+}
+
+.settings-group h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--bg-tertiary);
+    font-size: 1.1rem;
+}
+
+.settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.settings-actions .btn {
+    justify-content: center;
+}
+
+/* Switch Toggle */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    margin-bottom: var(--spacing-md);
+}
+
+.switch input {
+    display: none;
+}
+
+.switch .slider {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+}
+
+.switch .slider::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.switch input:checked + .slider {
+    background: var(--primary);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+.switch .label {
+    font-weight: 500;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    z-index: 100;
+}
+
+.fab:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(46, 204, 113, 0.5);
+}
+
+/* Drag and Drop Indicators */
+.drag-over {
+    background: rgba(46, 204, 113, 0.2) !important;
+    border: 2px dashed var(--primary);
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+/* Empty States */
+.empty-chapters,
+.empty-tasks {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--text-secondary);
+    grid-column: 1 / -1;
+}
+
+.empty-chapters i,
+.empty-tasks i {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.3;
+}
+
+.empty-chapters h3,
+.empty-tasks h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    opacity: 0.7;
+}
+
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--text-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 100;
+    margin-bottom: 5px;
+}
+
+/* Progress Ring Gradient */
+.progress-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* Calendar Grid Enhancements */
+.calendar-grid {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+}
+
+.week-row {
+    background: var(--glass-bg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    overflow: hidden;
+    transition: background var(--transition-fast);
+}
+
+.week-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.week-row.drag-over {
+    background: rgba(46, 204, 113, 0.15);
+    border: 2px dashed var(--primary);
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+    .share-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-stats {
+        gap: var(--spacing-md);
+    }
+
+    .toast {
+        min-width: auto;
+        width: calc(100vw - 2rem);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .tasks-sticky-progress,
+    .btn,
+    .icon-btn,
+    .filter-controls,
+    .schedule-controls,
+    .toast-container {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    .stat-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
