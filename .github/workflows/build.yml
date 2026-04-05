@@ -44,8 +44,11 @@ jobs:
     - name: Install Node.js dependencies
       run: npm ci
 
+    - name: Check Node.js version
+      run: node --version
+
     - name: Sync Capacitor Android project
-      run: npx cap sync android
+      run: npx --no-install cap sync android
 
     - name: Build Debug APK
       run: cd android && ./gradlew --no-daemon assembleDebug
