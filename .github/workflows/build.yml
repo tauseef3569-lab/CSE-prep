@@ -22,6 +22,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
@@ -30,8 +35,17 @@ jobs:
         sdkmanager "platforms;android-36" "build-tools;34.0.0"
         yes | sdkmanager --licenses
 
+    - name: Set up local.properties
+      run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+
     - name: Grant execute permission to gradlew
       run: chmod +x android/gradlew
+
+    - name: Install Node.js dependencies
+      run: npm ci
+
+    - name: Sync Capacitor Android project
+      run: npx cap sync android
 
     - name: Build Debug APK
       run: cd android && ./gradlew --no-daemon assembleDebug
