@@ -25,7 +25,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '22.x'
+        node-version: '22'
+
+    - name: Enable Corepack
+      run: corepack enable
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
@@ -48,7 +51,7 @@ jobs:
       run: node --version
 
     - name: Sync Capacitor Android project
-      run: npx --no-install cap sync android
+      run: npx --yes @capacitor/cli@8.3.0 sync android
 
     - name: Build Debug APK
       run: cd android && ./gradlew --no-daemon assembleDebug
